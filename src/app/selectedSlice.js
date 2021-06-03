@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 export const selectedSlice = createSlice({
   name: "selected",
@@ -10,7 +10,15 @@ export const selectedSlice = createSlice({
       state.value.push(action.payload);
     },
     removeValue: (state, action) => {
-      console.log("remove");
+      let temp = Array.from(current(state).value);
+
+      for (let i = 0; i < temp.length; i++) {
+        if (temp[i].x === action.payload.x && temp[i].y === action.payload.y) {
+          temp.splice(i, 1);
+        }
+      }
+
+      state.value = temp;
     },
     resetSelected: (state) => {
       state.value = [];

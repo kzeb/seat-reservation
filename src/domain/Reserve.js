@@ -54,6 +54,7 @@ export const Seat = ({ data, all }) => {
   function onClick(id) {
     if (document.getElementById(id).style.backgroundColor === "orange") {
       document.getElementById(id).style.backgroundColor = "white";
+      store.dispatch(removeValue({ x: data.x, y: data.y }));
     } else if (
       document.getElementById(id).style.backgroundColor === "gray" ||
       document.getElementById(id).style.borderColor === "white"
