@@ -9,20 +9,19 @@ export const Summary = () => {
       <Row justify="center">
         <Col span={24}>
           <div style={{ width: 900, height: "100vh", margin: "100px auto" }}>
-            <h1>
+            <h1 style={{ paddingBottom: 15 }}>
               <b>Twoja rezerwacja przebiegła pomyślnie!</b>
             </h1>
-            <p></p>
-            <p>Wybrałeś miejsca:</p>
+
+            <h4 style={{ margin: 0 }}>Wybrałeś miejsca:</h4>
             {store.getState().selected.value.map((x) => (
-              <p key={x.x + x.y}>
+              <p style={{ margin: 0 }} key={x.x + x.y}>
                 - rząd x{x.x}, miejsce y{x.y} (id s{x.x}
                 {x.y})
               </p>
             ))}
-            <p></p>
-            <p></p>
-            <h3>
+
+            <h3 style={{ paddingTop: 25 }}>
               <b>
                 Dziękujemy! W razie problemów prosimy o kontakt z działem
                 administracji.
